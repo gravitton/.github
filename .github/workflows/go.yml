@@ -1,0 +1,82 @@
+name: Go
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    name: Go ${{ matrix.go }} on ${{ matrix.os }}
+    strategy:
+      matrix:
+        go:
+          - '1.27'
+        os:
+          - ubuntu-latest
+          - ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Go ${{ matrix.go }}
+        uses: actions/setup-go@v7
+        with:
+          go-version: ${{ matrix.go }}
+
+      - name: Install tools
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@latest
+          go install golang.org/x/vuln/cmd/govulncheck@latest
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Lint
+        run: staticcheck ./...
+
+      - name: Fused multiply-add
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          module=$(go list -m)
+          for pkg in $(go list ./...); do
+            for t in "arm64 v1" "amd64 v3"; do
+              set -- $t
+              GOARCH=$1 GOAMD64=$2 go test -c -o /dev/null -gcflags=-S "$pkg" 2>&1 \
+                | awk -v m="$module" -v root="$PWD/" '
+                    / STEXT / { fn = $1 }
+                    /[ \t](FN?M(ADD|SUB)[DS]|VFN?M(ADD|SUB)[0-9]+S[DS])[ \t]/ && index(fn, m) == 1 && fn !~ /\.(Test|Benchmark|Example|Fuzz)/ {
+                      if (match($0, /\([^()]+\.go:[0-9]+\)/)) {
+                        loc = substr($0, RSTART + 1, RLENGTH - 2)
+                        if (index(loc, root) == 1 && loc !~ /_test\.go:/) print substr(loc, length(root) + 1)
+                      }
+                    }'
+            done
+          done | sort -u | while IFS=: read -r file line; do
+            printf '%s: %s\n' "$file" "$(sed -n "${line}p" "$file" | sed 's/^[[:space:]]*//')"
+          done | LC_ALL=C sort -u > "$RUNNER_TEMP/fused.txt"
+          expected=.github/fused.txt
+          [ -f "$expected" ] || expected=/dev/null
+          diff -u "$expected" "$RUNNER_TEMP/fused.txt"
+
+      - name: Security
+        run: govulncheck ./...
+
+      - name: Build
+        run: go build -v ./...
+
+      - name: Test
+        run: go test -v -race ./...
+
+      - name: Coverage
+        run: go test -coverprofile=coverage.out ./...
+
+      - name: Upload coverage
+        if: matrix.os == 'ubuntu-latest'
+        uses: coverallsapp/github-action@v2
+        with:
+          file: coverage.out
+          format: golang

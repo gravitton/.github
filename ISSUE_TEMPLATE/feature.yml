@@ -1,0 +1,22 @@
+name: Feature request
+description: Propose new API or a change to existing API.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: What are you building, and what can you not do with the current API?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      description: Signatures and a short usage snippet.
+      render: go
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: How you work around it today, or other designs you considered.
