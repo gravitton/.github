@@ -20,55 +20,16 @@ Go libraries for game development
 </div>
 
 Generic, allocation-conscious and tested to 100% coverage, with results that stay bit-identical
-across amd64 and arm64. Every picture below is drawn from the libraries' own results.
+across amd64 and arm64.
 
 ## Libraries
 
-### [geometry][link-geometry]
-
-Immutable 2D geometry: points, vectors and shapes with their tests, casts and constructions.
-
-<p align="center">
-<a href="https://github.com/gravitton/geometry">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
-  <img alt="A tile platformer level lit by a sentry's view, built from raycasts that stop at walls and spikes" src="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
-</picture>
-</a>
-</p>
-
-### [hexagon][link-hexagon]
-
-Hexagonal grid math: coordinates, rings, lines, line of sight and field of view.
-
-<p align="center">
-<a href="https://github.com/gravitton/hexagon">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/hexagon/refs/heads/main/docs/images/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/hexagon/refs/heads/main/docs/images/hero-light.svg">
-  <img alt="A hex map: the field of view of a unit among walls, a line to the farthest hex it sees, and the range of a second unit" src="https://raw.githubusercontent.com/gravitton/hexagon/refs/heads/main/docs/images/hero-light.svg">
-</picture>
-</a>
-</p>
-
-### [grid][link-grid]
-
-2D grids with rectangular, isometric and hexagonal layouts, range and sight queries, and
-pathfinding.
-
-<p align="center">
-<a href="https://github.com/gravitton/grid">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/grid/refs/heads/main/docs/images/hero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/grid/refs/heads/main/docs/images/hero-light.svg">
-  <img alt="An isometric map: the field of view of a scout among walls and its cheapest path to a goal around rough ground" src="https://raw.githubusercontent.com/gravitton/grid/refs/heads/main/docs/images/hero-light.svg">
-</picture>
-</a>
-</p>
-
-### Also
-
+- [geometry][link-geometry]: immutable 2D geometry, points, vectors and shapes with their
+  tests, casts and constructions.
+- [hexagon][link-hexagon]: hexagonal grid math, coordinates, rings, lines, line of sight and
+  field of view.
+- [grid][link-grid]: 2D grids with rectangular, isometric and hexagonal layouts, range and
+  sight queries, and pathfinding.
 - [container][link-container]: generic containers, a table of values per index and an
   immutable sorted set.
 - [assert][link-assert]: lightweight test assertions.
