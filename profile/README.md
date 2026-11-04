@@ -9,8 +9,8 @@
 </a>
 
 [![Stars][ico-stars]][link-repositories]
-[![Go Version][ico-go-version]][link-go]
 [![Go Dev Reference][ico-go-dev-reference]][link-go-dev-reference]
+[![Go Version][ico-go-version]][link-go]
 [![Software License][ico-license]][link-license]
 
 Go libraries for game development
