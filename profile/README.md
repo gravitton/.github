@@ -96,7 +96,7 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 
 [link-repositories]:        https://github.com/orgs/gravitton/repositories
 [link-go]:                  https://go.dev/doc/devel/release
-[link-go-dev-reference]:    https://pkg.go.dev/search?q=github.com%2Fgravitton
+[link-go-dev-reference]:    https://pkg.go.dev/search?limit=25&m=package&q=github.com%2Fgravitton
 [link-license]:             https://github.com/gravitton/geometry/blob/main/LICENSE.md
 [link-contributing]:        https://github.com/gravitton/.github/blob/main/CONTRIBUTING.md
 [link-security]:            https://github.com/gravitton/.github/blob/main/SECURITY.md
