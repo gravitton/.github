@@ -24,26 +24,59 @@ across amd64 and arm64.
 
 ## Libraries
 
-- [geometry][link-geometry]: immutable 2D geometry, points, vectors and shapes with their
-  tests, casts and constructions.
-- [hexagon][link-hexagon]: hexagonal grid math, coordinates, rings, lines, line of sight and
-  field of view.
-- [grid][link-grid]: 2D grids with rectangular, isometric and hexagonal layouts, range and
-  sight queries, and pathfinding.
+One map of walls, rough ground, a scout and a goal, drawn by each library in turn: as shapes,
+as hexes, and as grids of every layout. Each library builds on the one before it.
+
+### [geometry][link-geometry]
+
+Immutable 2D geometry: points, vectors and shapes with their tests, casts and constructions.
+
+<p align="center">
+<a href="https://github.com/gravitton/geometry">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
+  <img alt="The map drawn with geometry: the scout's view cast by rays that stop at the walls, the scout swept toward the goal until it hits a wall, and the walls grown by the scout's radius" src="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
+</picture>
+</a>
+</p>
+
+### [hexagon][link-hexagon]
+
+Hexagonal grid math: coordinates, rings, lines, line of sight and field of view.
+
+<p align="center">
+<a href="https://github.com/gravitton/hexagon">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/hexagon/refs/heads/main/docs/images/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/hexagon/refs/heads/main/docs/images/hero-light.svg">
+  <img alt="The map in hexes: the scout's field of view, its line to the goal, hidden behind a wall, and its field of view in a sector toward the goal" src="https://raw.githubusercontent.com/gravitton/hexagon/refs/heads/main/docs/images/hero-light.svg">
+</picture>
+</a>
+</p>
+
+### [grid][link-grid]
+
+2D grids with rectangular, isometric and hexagonal layouts, range and sight queries, and
+pathfinding, on geometry, hexagon and container.
+
+<p align="center">
+<a href="https://github.com/gravitton/grid">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/grid/refs/heads/main/docs/images/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/grid/refs/heads/main/docs/images/hero-light.svg">
+  <img alt="The map on a rectangular, an isometric and a pointy-top grid: on each the scout's field of view and its cheapest path to the goal around the rough ground" src="https://raw.githubusercontent.com/gravitton/grid/refs/heads/main/docs/images/hero-light.svg">
+</picture>
+</a>
+</p>
+
+### Supporting libraries
+
 - [container][link-container]: generic containers, a table of values per index and an
-  immutable sorted set.
+  immutable sorted set, on geometry.
 - [assert][link-assert]: lightweight test assertions.
 - [errors][link-errors]: a drop-in superset of `errors` with fields, stack traces and
   multi-errors.
-
-```mermaid
-graph LR
-  hexagon --> geometry
-  container --> geometry
-  grid --> geometry
-  grid --> hexagon
-  grid --> container
-```
 
 ## Contributing
 
