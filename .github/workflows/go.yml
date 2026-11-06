@@ -71,6 +71,33 @@ jobs:
       - name: Test
         run: go test -v -race ./...
 
+      - name: Checkout figure templates
+        if: matrix.os == 'ubuntu-latest' && hashFiles('docs/diagrams/go.mod') != ''
+        uses: actions/checkout@v7
+        with:
+          repository: gravitton/.github
+          path: .figure-templates
+          sparse-checkout: templates/diagrams
+
+      - name: Figures
+        if: matrix.os == 'ubuntu-latest' && hashFiles('docs/diagrams/go.mod') != ''
+        working-directory: docs/diagrams
+        env:
+          GOWORK: 'off'
+        run: |
+          templates="$GITHUB_WORKSPACE/.figure-templates/templates/diagrams"
+          status=0
+          for file in "$templates"/*.go; do
+            diff -u "$file" "$(basename "$file")" || status=1
+          done
+          [ "$status" -eq 0 ] || { echo "::error::docs/diagrams differs from gravitton/.github/templates/diagrams"; exit 1; }
+          test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
+          go vet ./...
+          staticcheck ./...
+          go run .
+          stale=$(git status --porcelain -- ../images)
+          [ -z "$stale" ] || { echo "$stale"; git diff --stat -- ../images; echo "::error::docs/images is stale, rerun go run . in docs/diagrams"; exit 1; }
+
       - name: Coverage
         run: go test -coverprofile=coverage.out ./...
 
