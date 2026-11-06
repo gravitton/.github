@@ -72,31 +72,32 @@ jobs:
         run: go test -v -race ./...
 
       - name: Checkout figure templates
-        if: matrix.os == 'ubuntu-latest' && hashFiles('docs/diagrams/go.mod') != ''
+        if: matrix.os == 'ubuntu-latest' && hashFiles('docs/images/generator/go.mod') != ''
         uses: actions/checkout@v7
         with:
           repository: gravitton/.github
           path: .figure-templates
-          sparse-checkout: templates/diagrams
+          sparse-checkout: templates/images/generator
 
       - name: Figures
-        if: matrix.os == 'ubuntu-latest' && hashFiles('docs/diagrams/go.mod') != ''
-        working-directory: docs/diagrams
+        if: matrix.os == 'ubuntu-latest' && hashFiles('docs/images/generator/go.mod') != ''
+        working-directory: docs/images/generator
         env:
           GOWORK: 'off'
         run: |
-          templates="$GITHUB_WORKSPACE/.figure-templates/templates/diagrams"
+          templates="$GITHUB_WORKSPACE/.figure-templates/templates/images/generator"
           status=0
           for file in "$templates"/*.go; do
             diff -u "$file" "$(basename "$file")" || status=1
           done
-          [ "$status" -eq 0 ] || { echo "::error::docs/diagrams differs from gravitton/.github/templates/diagrams"; exit 1; }
+          [ "$status" -eq 0 ] || { echo "::error::docs/images/generator differs from gravitton/.github/templates/images/generator"; exit 1; }
           test -z "$(gofmt -l .)" || { gofmt -l .; exit 1; }
           go vet ./...
           staticcheck ./...
+          find .. -maxdepth 1 -name '*.svg' ! -name 'logo-*' -delete
           go run .
-          stale=$(git status --porcelain -- ../images)
-          [ -z "$stale" ] || { echo "$stale"; git diff --stat -- ../images; echo "::error::docs/images is stale, rerun go run . in docs/diagrams"; exit 1; }
+          stale=$(git status --porcelain -- '../*.svg')
+          [ -z "$stale" ] || { echo "$stale"; echo "::error::docs/images differs from what go run . in docs/images/generator writes: an image is stale, missing, or no figure writes it"; exit 1; }
 
       - name: Coverage
         run: go test -coverprofile=coverage.out ./...
