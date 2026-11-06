@@ -36,7 +36,7 @@ Immutable 2D geometry: points, vectors and shapes with their tests, casts and co
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
-  <img alt="The map drawn with geometry: the scout's view cast by rays that stop at the walls, the scout swept toward the goal until it hits a wall, and the walls grown by the scout's radius" src="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
+  <img alt="The map drawn with geometry: the scout's view cast by rays that stop at the walls, with one ray reflected until it reaches the goal, the scout swept toward the goal until it hits a wall, and a Bezier route to the goal, checked against the wall edges" src="https://raw.githubusercontent.com/gravitton/geometry/refs/heads/main/docs/images/hero-light.svg">
 </picture>
 </a>
 </p>
