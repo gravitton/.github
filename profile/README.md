@@ -74,6 +74,8 @@ pathfinding, on geometry, hexagon and container.
 
 - [container][link-container]: generic containers, a table of values per index and an
   immutable sorted set, on geometry.
+- [spatial][link-spatial]: broad-phase spatial indexes, a spatial hash with box, point and cast
+  queries and touching pairs, on geometry.
 - [assert][link-assert]: lightweight test assertions.
 - [errors][link-errors]: a drop-in superset of `errors` with fields, stack traces and
   multi-errors.
@@ -104,5 +106,6 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 [link-hexagon]:             https://github.com/gravitton/hexagon
 [link-grid]:                https://github.com/gravitton/grid
 [link-container]:           https://github.com/gravitton/container
+[link-spatial]:             https://github.com/gravitton/spatial
 [link-assert]:              https://github.com/gravitton/assert
 [link-errors]:              https://github.com/gravitton/errors
