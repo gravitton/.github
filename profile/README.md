@@ -12,6 +12,7 @@
 [![Go Dev Reference][ico-go-dev-reference]][link-go-dev-reference]
 [![Go Version][ico-go-version]][link-go]
 [![Software License][ico-license]][link-license]
+[![Blog][ico-blog]][link-blog]
 
 Go libraries for game development
 
@@ -80,6 +81,14 @@ pathfinding, on geometry, hexagon and container.
 - [errors][link-errors]: a drop-in superset of `errors` with fields, stack traces and
   multi-errors.
 
+## Writing
+
+Each post on the [blog][link-blog] takes one decision from these libraries and shows the code and
+the numbers behind it.
+
+- [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries] (2026-11-06): the
+  three libraries on one map.
+
 ## Contributing
 
 Bug reports and proposals are welcome in each library's issues. Please see
@@ -95,6 +104,7 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 [ico-go-version]:           https://img.shields.io/github/go-mod/go-version/gravitton/geometry?style=flat-square&color=007d9c
 [ico-go-dev-reference]:     https://img.shields.io/badge/go.dev-reference-007d9c?style=flat-square
 [ico-license]:              https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square
+[ico-blog]:                 https://img.shields.io/badge/blog-posts-e8883a?style=flat-square
 
 [link-repositories]:        https://github.com/orgs/gravitton/repositories
 [link-go]:                  https://go.dev/doc/devel/release
@@ -109,3 +119,5 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 [link-spatial]:             https://github.com/gravitton/spatial
 [link-assert]:              https://github.com/gravitton/assert
 [link-errors]:              https://github.com/gravitton/errors
+[link-blog]:                https://gravitton.github.io/blog/
+[link-post-libraries]:      https://gravitton.github.io/blog/posts/gravitton-libraries/
