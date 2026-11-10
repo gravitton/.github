@@ -86,7 +86,9 @@ pathfinding, on geometry, hexagon and container.
 Each post on the [blog][link-blog] takes one decision from these libraries and shows the code and
 the numbers behind it.
 
-- [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries] (2026-11-06): the
+- [What generics over number types cost in Go][link-post-generics] (2026-11-10): a generic method
+  priced over the inlining budget, and the profile that takes it back.
+- [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries] (2026-11-03): the
   three libraries on one map.
 
 ## Contributing
@@ -121,3 +123,4 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 [link-errors]:              https://github.com/gravitton/errors
 [link-blog]:                https://gravitton.github.io/blog/
 [link-post-libraries]:      https://gravitton.github.io/blog/posts/gravitton-libraries/
+[link-post-generics]:       https://gravitton.github.io/blog/posts/generic-numbers/
