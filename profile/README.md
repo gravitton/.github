@@ -81,15 +81,13 @@ pathfinding, on geometry, hexagon and container.
 - [errors][link-errors]: a drop-in superset of `errors` with fields, stack traces and
   multi-errors.
 
-## Writing
+## Blog
 
 Each post on the [blog][link-blog] takes one decision from these libraries and shows the code and
 the numbers behind it.
 
-- [What generics over number types cost in Go][link-post-generics] (2026-11-10): a generic method
-  priced over the inlining budget, and the profile that takes it back.
-- [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries] (2026-11-03): the
-  three libraries on one map.
+- [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries]
+- [What generics over number types cost in Go][link-post-generics]
 
 ## Contributing
 
