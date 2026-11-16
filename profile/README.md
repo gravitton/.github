@@ -88,6 +88,7 @@ the numbers behind it.
 
 - [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries]
 - [What generics over number types cost in Go][link-post-generics]
+- [Closed boundaries within a tolerance in a Go geometry library][link-post-boundaries]
 
 ## Contributing
 
@@ -122,3 +123,4 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 [link-blog]:                https://gravitton.github.io/blog/
 [link-post-libraries]:      https://gravitton.github.io/blog/posts/gravitton-libraries/
 [link-post-generics]:       https://gravitton.github.io/blog/posts/generic-numbers/
+[link-post-boundaries]:     https://gravitton.github.io/blog/posts/closed-boundaries/
