@@ -26,7 +26,8 @@ across amd64 and arm64.
 ## Libraries
 
 One map of walls, rough ground, a scout and a goal, drawn by each library in turn: as shapes,
-as hexes, and as grids of every layout. Each library builds on the one before it.
+as hexes, as grids of every layout and as the cells of a spatial hash. Geometry is the base:
+hexagon and spatial build on it alone, and grid on it, hexagon and container.
 
 ### [geometry][link-geometry]
 
@@ -71,12 +72,25 @@ pathfinding, on geometry, hexagon and container.
 </a>
 </p>
 
+### [spatial][link-spatial]
+
+Broad-phase spatial indexes: a spatial hash with box, point and cast queries and touching pairs, on
+geometry.
+
+<p align="center">
+<a href="https://github.com/gravitton/spatial">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/gravitton/spatial/refs/heads/main/docs/images/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/gravitton/spatial/refs/heads/main/docs/images/hero-light.svg">
+  <img alt="The map over the cells of a spatial hash: the keys QueryBox returns for the scout's view of radius 6, the keys QuerySegment returns for the line to the goal, and the pairs of keys that touch" src="https://raw.githubusercontent.com/gravitton/spatial/refs/heads/main/docs/images/hero-light.svg">
+</picture>
+</a>
+</p>
+
 ### Supporting libraries
 
 - [container][link-container]: generic containers, a table of values per index and an
   immutable sorted set, on geometry.
-- [spatial][link-spatial]: broad-phase spatial indexes, a spatial hash with box, point and cast
-  queries and touching pairs, on geometry.
 - [assert][link-assert]: lightweight test assertions.
 - [errors][link-errors]: a drop-in superset of `errors` with fields, stack traces and
   multi-errors.
