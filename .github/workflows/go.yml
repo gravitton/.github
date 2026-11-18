@@ -71,6 +71,15 @@ jobs:
       - name: Test
         run: go test -v -race ./...
 
+      - name: Fuzz
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          for pkg in $(go list ./...); do
+            for target in $(go test -list '^Fuzz' "$pkg" | grep '^Fuzz'); do
+              go test -run '^$' -fuzz "^$target\$" -fuzztime 3s "$pkg"
+            done
+          done
+
       - name: Checkout figure templates
         if: matrix.os == 'ubuntu-latest' && hashFiles('docs/images/generator/go.mod') != ''
         uses: actions/checkout@v7
