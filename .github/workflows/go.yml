@@ -109,10 +109,11 @@ jobs:
           [ -z "$stale" ] || { echo "$stale"; echo "::error::docs/images differs from what go run . in docs/images/generator writes: an image is stale, missing, or no figure writes it"; exit 1; }
 
       - name: Coverage
+        if: matrix.os == 'ubuntu-latest' && github.repository_visibility == 'public'
         run: go test -coverprofile=coverage.out ./...
 
       - name: Upload coverage
-        if: matrix.os == 'ubuntu-latest'
+        if: matrix.os == 'ubuntu-latest' && github.repository_visibility == 'public'
         uses: coverallsapp/github-action@v2
         with:
           file: coverage.out
