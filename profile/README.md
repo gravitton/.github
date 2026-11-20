@@ -29,7 +29,7 @@ One map of walls, rough ground, a scout and a goal, drawn by each library in tur
 as hexes, as grids of every layout and as the cells of a spatial hash. Geometry is the base:
 hexagon and spatial build on it alone, and grid on it, hexagon and container.
 
-### [geometry][link-geometry]
+### [geometry](https://github.com/gravitton/geometry)
 
 Immutable 2D geometry: points, vectors and shapes with their tests, casts and constructions.
 
@@ -43,7 +43,7 @@ Immutable 2D geometry: points, vectors and shapes with their tests, casts and co
 </a>
 </p>
 
-### [hexagon][link-hexagon]
+### [hexagon](https://github.com/gravitton/hexagon)
 
 Hexagonal grid math: coordinates, rings, lines, line of sight and field of view.
 
@@ -57,7 +57,7 @@ Hexagonal grid math: coordinates, rings, lines, line of sight and field of view.
 </a>
 </p>
 
-### [grid][link-grid]
+### [grid](https://github.com/gravitton/grid)
 
 2D grids with rectangular, isometric and hexagonal layouts, range and sight queries, and
 pathfinding, on geometry, hexagon and container.
@@ -72,7 +72,7 @@ pathfinding, on geometry, hexagon and container.
 </a>
 </p>
 
-### [spatial][link-spatial]
+### [spatial](https://github.com/gravitton/spatial)
 
 Broad-phase spatial indexes: a spatial hash with box, point and cast queries and touching pairs, on
 geometry.
@@ -89,20 +89,18 @@ geometry.
 
 ### Supporting libraries
 
-- [container][link-container]: generic containers, a table of values per index and an
-  immutable sorted set, on geometry.
-- [assert][link-assert]: lightweight test assertions.
-- [errors][link-errors]: a drop-in superset of `errors` with fields, stack traces and
-  multi-errors.
+- [container](https://github.com/gravitton/container): generic containers, a table of values per index and an immutable sorted set, on geometry.
+- [assert](https://github.com/gravitton/assert): lightweight test assertions.
+- [errors](https://github.com/gravitton/errors): a drop-in superset of `errors` with fields, stack traces and multi-errors.
 
 ## Blog
 
 Each post on the [blog][link-blog] takes one decision from these libraries and shows the code and
 the numbers behind it.
 
-- [Go libraries for 2D games: geometry, hexagon and grid][link-post-libraries]
-- [What generics over number types cost in Go][link-post-generics]
-- [Closed boundaries within a tolerance in a Go geometry library][link-post-boundaries]
+- [Go libraries for 2D games: geometry, hexagon and grid](https://gravitton.github.io/blog/posts/gravitton-libraries/)
+- [What generics over number types cost in Go](https://gravitton.github.io/blog/posts/generic-numbers/)
+- [Closed boundaries within a tolerance in a Go geometry library](https://gravitton.github.io/blog/posts/closed-boundaries/)
 
 ## Contributing
 
@@ -127,14 +125,4 @@ Every library is released under the MIT License, in the `LICENSE.md` of its repo
 [link-license]:             https://github.com/gravitton/geometry/blob/main/LICENSE.md
 [link-contributing]:        https://github.com/gravitton/.github/blob/main/CONTRIBUTING.md
 [link-security]:            https://github.com/gravitton/.github/blob/main/SECURITY.md
-[link-geometry]:            https://github.com/gravitton/geometry
-[link-hexagon]:             https://github.com/gravitton/hexagon
-[link-grid]:                https://github.com/gravitton/grid
-[link-container]:           https://github.com/gravitton/container
-[link-spatial]:             https://github.com/gravitton/spatial
-[link-assert]:              https://github.com/gravitton/assert
-[link-errors]:              https://github.com/gravitton/errors
 [link-blog]:                https://gravitton.github.io/blog/
-[link-post-libraries]:      https://gravitton.github.io/blog/posts/gravitton-libraries/
-[link-post-generics]:       https://gravitton.github.io/blog/posts/generic-numbers/
-[link-post-boundaries]:     https://gravitton.github.io/blog/posts/closed-boundaries/
